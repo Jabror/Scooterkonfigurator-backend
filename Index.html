@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <title>Scooter-Konfigurator</title>
+</head>
+<body>
+    <style>
+       body {
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+        }
+        h1{
+            display: flex;
+            justify-content: center;
+        }       
+        .Small_Container{
+            flex-direction: column;
+            gap: 10px;
+            width: 40vw;
+            height: 50px;
+            margin-left: 30vw;
+            background-color: rgb(228, 228, 228);
+        }
+        h3{
+            font-weight: 500;    
+        }
+        h4{
+            font-weight: 400;
+            background-color: antiquewhite;
+            width: 40vw;
+            height: 30px;
+        }
+        .Höhe{
+            position: absolute;
+            top: 100px;
+        }
+        .Suche{
+            position: absolute;
+            right: 0px;
+            height: 25px;
+            width: 300px;
+        }
+        .Button_Kompressionsystem{
+           position: relative;
+           left: 37.5vw;
+           top: 500px;
+           width: 10vw;
+           height: 40px;
+        }
+        .Preis{
+           position: relative;
+           left: 37.5vw;
+           top: 250px; 
+           width: 10vw;
+           height: 40px;
+        }
+        .input{
+            position: relative;
+            right: 37.5vw;
+            top: 510px;
+            width: 5vw;
+            height: 20px;
+            background-color: aqua;
+        }
+        .Suchmaschine{
+            display: none;
+            width: 40vw;
+            position: absolute;
+            left: 30vw;
+        }
+        .Einheit1{
+            position: absolute;
+            transition: top 0.3s ease;
+        }
+        .Einheit2{
+            position: absolute;
+            transition: top 0.3s ease;
+        }
+        .Einheit3{
+            position: absolute;
+            transition: top 0.3s ease;
+        }
+        .Einheit4{
+            position: absolute;
+            transition: top 0.3s ease;
+        }
+        .Einheit5{
+            position: absolute;
+            transition: top 0.3s ease;
+        }
+        .Einheit6{
+            position: absolute;
+            transition: top 0.3s ease;  
+        }
+        .Einheit9{
+            position: absolute;
+            transition: top 0.3s ease;
+        }
+        .Einheit7{
+            position: absolute;
+            transition: top 0.3s ease;
+        }
+        .Einheit8{
+            position: absolute;
+            transition: top 0.3s ease;
+        }
+        .Produkte{
+            position: absolute;
+            left: 30vw;
+            width: 40vw;
+            height: 800px;
+            border-radius: 20px;
+            background-color: rgb(231, 231, 231);
+            border: 1.5px solid rgb(32, 32, 32);
+            display: none;
+            overflow: auto;
+        }
+        .i{
+            position: absolute;
+            top: 100px;
+            left: 10vw;
+            width: 80vw;
+            height: 820px;
+            border-radius: 20px;
+            background-color: antiquewhite;
+            display: none;
+            overflow: auto;
+        }
+        .Fenster_schliessen{
+            position: fixed;
+            right: 30.5vw;
+            top: 110px;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(240, 240, 240);
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 15%;
+            cursor: pointer;
+            border: 1.5px solid rgb(32, 32, 32);
+        }
+        .Fenster_schliessen:hover{
+            background-color: rgb(255, 28, 28);
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 72px 72px;
+        }
+        .Produkt_Titel {
+            width: 150px;
+            height: 40px;
+        }
+        .img{
+            z-index: 100000;
+            width: 150px;
+        }
+        .Scooter {
+            display: none;
+        }
+        .Produkt_Informationen {
+            font-size: 16.3px;
+        }
+        .Warenkorb{
+            position: absolute;
+            left: 25vw;
+            width: 50vw;
+            height: 700px;
+            border-radius: 20px;
+            background-color: rgb(216, 216, 216);
+            border: 1.5px solid rgb(32, 32, 32);
+            display: none;
+        }
+        .EndProdukte{
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            background-color: wheat;
+        }
+        .Kosten{         
+            width: 50vw;
+            height: 50px;
+            background-color: rgb(200, 200, 200);
+            border-top: 1.5px solid rgb(32, 32, 32);
+        }
+        .paypal-wrapper {
+            display: flex;
+            justify-content: center;   /* horizontal mittig */
+            align-items: center;       /* optional vertikal */
+            width: 100%;
+            position: absolute;
+            top: 2000px;
+        }
+
+        #paypal-button {
+            width: 100%;
+            max-width: 800px;   /* optional: begrenzt Breite */
+        }
+
+
+    </style>
+    <h1>Scooter-Konfigurator</h1>
+    <div class="Höhe">
+        
+            <div class="Small_Container" onclick= "addToDo(1)">
+                <h3>Deck</h3>
+           
+        </div>
+        <div id="Einheit1" class="Einheit1">
+            <div class="Small_Container" onclick= "addToDo(2)">
+                <h3>Headset</h3>
+            </div>
+            <div id="Einheit2" class="Einheit2">
+                <div class="Small_Container" onclick= "addToDo(3)">
+                    <h3>Fork</h3>
+                </div>
+                <div id="Einheit3" class="Einheit3">
+                    <div class="Small_Container" onclick= "addToDo(4)">
+                        <h3>Bar</h3>
+                    </div>
+                    <div id="Einheit4" class="Einheit4">
+                        <div class="Small_Container" onclick= "addToDo(5)">
+                            <h3>Klemme</h3>
+                        </div>
+                        <div class="Einheit5" id="Einheit5">
+                            <div class="Small_Container" onclick= "addToDo(6)">
+                                <h3>Räder</h3>
+                            </div>
+                            <div class="Einheit6" id="Einheit6">
+                                <div class="Small_Container" onclick= "addToDo(7)">
+                                    <h3>Griffe</h3>
+                                </div>
+                                <div class="Einheit7" id="Einheit7">
+                                    <div class="Small_Container" onclick= "addToDo(8)">
+                                        <h3>Griptape</h3>
+                                    </div>                                     
+                                     <div class="Einheit8" id="Einheit8">
+                                        <button class="Button_Kompressionsystem" onclick="PopUpKasse()">Zur Kasse</button>
+                                    </div>                                  
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    <!-- sichtbarer Bereich -->
+    <div id="Warenkorb" class="Warenkorb">
+        <h1 class="EndProdukte" id="EndProdukte"></h1>
+        <h1 class="EndProdukte" id="EndProdukte"></h1>
+        <h1 class="EndProdukte" id="EndProdukte"></h1>
+        <h1 class="EndProdukte" id="EndProdukte"></h1>
+        <h1 class="EndProdukte" id="EndProdukte"></h1>
+        <h1 class="EndProdukte" id="EndProdukte"></h1>
+        <h1 class="EndProdukte" id="EndProdukte"></h1>
+        <h1 class="EndProdukte" id="EndProdukte"></h1>
+        <div class="Kosten" id="Kosten">
+        </div>
+    </div>
+    
+    
+    <div class="Produkte" id="Produkte">
+        <button class="Fenster_schliessen" onclick="Fenster_schliessen()">✖</button>
+        <h1 id="Kategorie"></h1>
+        <table>
+            <tr>
+                <td class="Produkt_Titel">
+                    <img src="" class="img">
+                    <span class="produktname"></span>
+                    <br>
+                    <button onclick="Hinzufügen(1)">Hinzufügen</button>
+                    <button onclick="Informationen(1)">Informationen</button>
+                </td>
+                <td class="Produkt_Titel">
+                    <img class="img">
+                    <span class="produktname"></span>
+                    <br>
+                    <button onclick="Hinzufügen(2)">Hinzufügen</button>
+                    <button onclick="Informationen(2)">Informationen</button>
+                </td>
+                <td class="Produkt_Titel">
+                    <img class="img">
+                    <span class="produktname"></span>
+                    <br>
+                    <button onclick="Hinzufügen(3)">Hinzufügen</button>
+                    <button onclick="Informationen(3)">Informationen</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="Produkt_Titel">
+                    <img class="img">
+                    <span class="produktname"></span>
+                    <br>
+                    <button onclick="Hinzufügen(4)">Hinzufügen</button>
+                    <button onclick="Informationen(4)">Informationen</button>
+                </td>
+                <td class="Produkt_Titel">
+                    <img class="img">
+                    <span class="produktname"></span>
+                    <br>
+                    <button onclick="Hinzufügen(5)">Hinzufügen</button>
+                    <button onclick="Informationen(5)">Informationen</button>
+                </td>
+                <td class="Produkt_Titel">
+                    <img class="img">
+                    <span class="produktname"></span>
+                    <br>
+                    <button onclick="Hinzufügen(6)">Hinzufügen</button>
+                    <button onclick="Informationen(6)">Informationen</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="Produkt_Titel">
+                    <img class="img">
+                    <span class="produktname"></span>
+                    <br>
+                    <button onclick="Hinzufügen(7)">Hinzufügen</button>
+                    <button onclick="Informationen(7)">Informationen</button>
+                </td>
+                <td class="Produkt_Titel">
+                    <img class="img">
+                    <span class="produktname"></span>
+                    <br>
+                    <button onclick="Hinzufügen(8)">Hinzufügen</button>
+                    <button onclick="Informationen(8)">Informationen</button>
+                </td>
+                <td class="Produkt_Titel">
+                    <img class="img">
+                    <span class="produktname"></span>
+                    <br>
+                    <button onclick="Hinzufügen(9)">Hinzufügen</button>
+                    <button onclick="Informationen(9)">Informationen</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="i" id ="i">
+        <div class="Navigation">
+            <button>Scooter</button>
+            <button onclick="Zurück()">Zurück</button>
+        </div>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+        <h3 class="Produkt_Informationen"></h3>
+    </div>
+    <div class="Scooter">
+        <button>Deck</button>
+        <button>Bar</button>
+        <button>Fork</button>
+        <button>Räder</button>
+        <button>Griffe</button>
+        <button>Griptape</button>
+        <button>Headset</button>
+        <button>Klemme</button>
+    </div>
+    <div id="buttonContainer"></div>
+
+    <script src="https://www.sandbox.paypal.com/sdk/js?client-id=AUNvHP-AcDxTY9G4_vBefhYK8pWeOkl7cX2HWt5U4nXnlvFLByANsYcO_bh5dNmeH3kgXJ2RWcxcEkPi&currency=CHF"></script>
+
+<div class="paypal-wrapper">
+    <div id="paypal-button"></div>
+</div>
+
+
+<script>
+    let Kompressionssystems = document.getElementById("Kompressionssystems");
+    let value2 = 0;
+    let aktuellGeöffneteEinheit = null;
+    let Kategorie = document.getElementById("Kategorie");
+    let Kategorien = ["Deck", "Headset", "Fork", "Bar", "Klemme", "Räder", "Griffe", "Griptape"];
+    let einheitenStatus = {};         // Status jedes Elements (true = verschoben)
+    let ursprungsPosition = {};       // Originale top-Position merken
+    let i = document.getElementById("i");
+    let Einheit9 = document.getElementById("Einheit9");
+    let scrDeck = ["/Scooterkonfigurator/Bilder/Deck/Pandemonium 1.webp", "/Scooterkonfigurator/Bilder/Deck/Tilt Stage 1.png", "/Scooterkonfigurator/Bilder/Deck/Root 1.jpg", "/Scooterkonfigurator/Bilder/Deck/Tilt Formula 1.png", "/Scooterkonfigurator/Bilder/Deck/Core 1.webp", "/Scooterkonfigurator/Bilder/Deck/Fuzion 1.png", "/Scooterkonfigurator/Bilder/Deck/Striker Bgseakk 1.jpg", "/Scooterkonfigurator/Bilder/Deck/Striker 1.jpg", "/Scooterkonfigurator/Bilder/Deck/Apex (1).jpg"];
+    let scrBar = ["/Scooterkonfigurator/Bilder/Bar/Y-CoreTitan 1.png", "/Scooterkonfigurator/Bilder/Bar/TiltStage1 1.webp", "/Scooterkonfigurator/Bilder/Bar/Ethic Triano 1.webp", "/Scooterkonfigurator/Bilder/Bar/Core Stahl 1.webp", "/Scooterkonfigurator/Bilder/Bar/ReaperV3 1.webp", "/Scooterkonfigurator/Bilder/Bar/Apex Bol 1.webp", "/Scooterkonfigurator/Bilder/Bar/Ethic2 1.webp", "/Scooterkonfigurator/Bilder/Bar/TCoreTitan 1.png", "/Scooterkonfigurator/Bilder/Bar/Root 1.webp"];
+    let scrFork = ["/Scooterkonfigurator/Bilder/Fork/EthicLegion 1.png", "/Scooterkonfigurator/Bilder/Fork/Longway Harpia 2.webp", "/Scooterkonfigurator/Bilder/Fork/Drone Aeon 1.webp", "/Scooterkonfigurator/Bilder/Fork/Longway Harpia IHC.png", "/Scooterkonfigurator/Bilder/Fork/Ethic Merrow 1.png", "/Scooterkonfigurator/Bilder/Fork/Native Versa 1.webp", "/Scooterkonfigurator/Bilder/Fork/Root Air 1.webp", "/Scooterkonfigurator/Bilder/Fork/Root Lithium 1.png", "/Scooterkonfigurator/Bilder/Fork/Native Stem 1.png"]
+    let scrRäder = ["/Scooterkonfigurator/Bilder/Räder/RiverRapid 1.webp", "/Scooterkonfigurator/Bilder/Räder/RiverNaturals 1.webp", "/Scooterkonfigurator/Bilder/Räder/TiltDurare 1.png", "/Scooterkonfigurator/Bilder/Räder/RootLotus 1.webp", "/Scooterkonfigurator/Bilder/Räder/RootHoneycore 1.webp", "/Scooterkonfigurator/Bilder/Räder/PreySense 1.webp", "/Scooterkonfigurator/Bilder/Räder/Vinyl1.webp", "/Scooterkonfigurator/Bilder/Räder/RootAir1.webp", "/Scooterkonfigurator/Bilder/Räder/Striker1.png"]
+    let scrGriffe = ["/Scooterkonfigurator/Bilder/Griffe/OdiSoft 1.webp", "/Scooterkonfigurator/Bilder/Griffe/OdiSLX 1.webp", "/Scooterkonfigurator/Bilder/Griffe/OdiFlanged 1.webp"]
+    let scrHeadset = ["/Scooterkonfigurator/Bilder/Headset/TiltIntegrated 1.webp", "/Scooterkonfigurator/Bilder/Headset/CoreDash 1.webp", "/Scooterkonfigurator/Bilder/Headset/District 1.webp", "/Scooterkonfigurator/Bilder/Headset/TiltTall 1.webp", "/Scooterkonfigurator/Bilder/Headset/Striker 1.webp", "/Scooterkonfigurator/Bilder/Headset/Apex1.webp"]
+    let scrKlemme = ["/Scooterkonfigurator/Bilder/Klemme/RootAir 1.webp", "/Scooterkonfigurator/Bilder/Klemme/TiltRigid 1.png", "/Scooterkonfigurator/Bilder/Klemme/TiltArc 1.webp", "/Scooterkonfigurator/Bilder/Klemme/EthicSylphe 1.png", "/Scooterkonfigurator/Bilder/Klemme/EthicSylpheV2 1.png", "/Scooterkonfigurator/Bilder/Klemme/TiltClassic 1.png", "/Scooterkonfigurator/Bilder/Klemme/TiltClassicDouble 1.webp", "/Scooterkonfigurator/Bilder/Klemme/NativeOrca 1.webp"]
+    let scrGriptape = ["/Scooterkonfigurator/Bilder/Griptape/Jessup 1.webp", "/Scooterkonfigurator/Bilder/Griptape/CoreBrandon 1.webp", "/Scooterkonfigurator/Bilder/Griptape/RipndipLord 1.webp", "/Scooterkonfigurator/Bilder/Griptape/TiltXHella 1.webp", "/Scooterkonfigurator/Bilder/Griptape/CoreCamiel 1.webp", "/Scooterkonfigurator/Bilder/Griptape/CoreRepeat 1.webp", "/Scooterkonfigurator/Bilder/Griptape/ApexRainbow.webp", "/Scooterkonfigurator/Bilder/Griptape/TiltJellies 1.webp", "/Scooterkonfigurator/Bilder/Griptape/Ethic.webp"]
+    let Produkte = document.getElementById("Produkte");
+    let apiRoute = 'http://localhost:3000/api/';
+    let baseApiRoute = 'http://localhost:3000/api/';
+    const Produkt_Titel = document.querySelectorAll('.Produkt_Titel');
+    let numberKategorie = {};
+    let Small_Container = document.querySelectorAll('.Small_Container');
+    let freigeben = 1;
+    let Warenkorb = document.getElementById("Warenkorb");
+    let EndProdukte = document.getElementById("EndProdukte");
+
+    function Freigeben() {
+    Small_Container.forEach((element, index) => {
+        // Alles erst aktivieren
+        element.style.pointerEvents = "auto";
+        element.style.opacity = "1";
+        // Danach die gesperrten deaktivieren
+        if (index >= freigeben) {
+            element.style.pointerEvents = "none";
+            element.style.opacity = "0.5";
+        }
+    });
+}
+
+    Freigeben()
+
+    function addToDo(number) {
+    let Einheit = document.getElementById("Einheit" + number);
+    
+    if (!ursprungsPosition[number]) {
+        ursprungsPosition[number] = Einheit.offsetTop;
+    }
+
+    if (!einheitenStatus[number]) {
+        Produkte.style.display = "block";
+        Produkte.style.top = `${window.scrollY + 100}px`;
+        Einheit.style.top = (ursprungsPosition[number] + 150) + "px";
+        numberKategorie = (ursprungsPosition[number] + 50) + "px";; // Speichere die aktuelle Kategorie-Nummer
+        Kategorie.textContent = Kategorien[number - 1]; // Setze den Text der Kategorie
+        einheitenStatus[number] = true;
+        aktuellGeöffneteEinheit = number;
+        
+        // 💡 Fetch-Daten laden, nachdem die Kategorie gesetzt wurde
+        ladeProdukte(Kategorie.textContent);
+        Informationen(Kategorie.textContent);
+
+    } else {
+        Produkte.style.display = "none";
+        Einheit.style.top = ursprungsPosition[number] + "px";
+        einheitenStatus[number] = false;
+        aktuellGeöffneteEinheit = null;
+    }
+}
+
+const img = document.querySelectorAll('.img');
+function ladeProdukte(kategorie) {
+    Produkt_Titel.forEach((element) => {
+        element.style.display = "table-cell";
+    });
+    if (kategorie === "Deck") {
+        apiRoute = baseApiRoute + 'scooterteile';
+        img.forEach((element, index) => {
+            if (scrDeck[index]) {
+                element.src = scrDeck[index];
+            }
+            element.style.height = "400px"; 
+            element.style.width = "150px";
+            Produkte.style.width = "40vw";
+            Produkte.style.left = "30vw";
+        });
+
+    } else if (kategorie === "Bar") {
+        apiRoute = baseApiRoute + 'bars';
+        img.forEach((element, index) => {
+            if (scrBar[index]) {
+                element.src = scrBar[index];
+            }
+            element.style.height = "300px"; 
+            element.style.width = "220px";
+            Produkte.style.width = "52vw"; 
+            Produkte.style.left = "24vw";
+        });
+    } else if (kategorie === "Fork") {
+        apiRoute = baseApiRoute + 'forks';
+        img.forEach((element, index) => {
+            if (scrFork[index]) {
+                element.src = scrFork[index];
+            }
+            element.style.height = "300px";
+            element.style.width = "220px";
+            Produkte.style.width = "52vw";
+            Produkte.style.left = "24vw";
+        });
+    } else if (kategorie === "Räder") {
+        apiRoute = baseApiRoute + 'rader';
+        img.forEach((element, index) => {
+            if (scrRäder[index]) {
+                element.src = scrRäder[index];
+            }
+            element.style.height = "190px";
+            element.style.width = "280px";
+            Produkte.style.width = "61vw";
+            Produkte.style.left = "19.5vw";
+        });
+    } else if (kategorie === "Griffe") {
+        apiRoute = baseApiRoute + 'griffe';
+        img.forEach((element, index) => {
+            if (scrGriffe[index]) {
+                element.src = scrGriffe[index];
+            }
+            element.style.height = "150px";
+            element.style.width = "280px";
+            Produkte.style.width = "61vw";
+            Produkte.style.left = "19.5vw";
+        });
+        Produkt_Titel.forEach((element, index) => {
+            if (index >= 3) {
+                element.style.display = "none";
+            }
+        });
+    } else if (kategorie === "Headset") {
+        apiRoute = baseApiRoute + 'headsets';
+        img.forEach((element, index) => {
+            if (scrHeadset[index]) {
+                element.src = scrHeadset[index];
+            }
+            element.style.height = "200px";
+            element.style.width = "280px";
+            Produkte.style.width = "61vw";
+            Produkte.style.left = "19.5vw";
+        });
+        Produkt_Titel.forEach((element, index) => {
+            if (index >= 6) {
+                element.style.display = "none";
+            }
+        });
+    } else if (kategorie === "Klemme") {
+        apiRoute = baseApiRoute + 'klemme';
+        img.forEach((element, index) => {
+            if (scrKlemme[index]) {
+                element.src = scrKlemme[index];
+            }
+            element.style.height = "230px";
+            element.style.width = "200px";
+            Produkte.style.width = "48vw";
+            Produkte.style.left = "26vw";
+        });
+        Produkt_Titel.forEach((element, index) => {
+            if (index >= 8) {
+                element.style.display = "none";
+            }
+        });
+    } else if (kategorie === "Griptape") {
+        apiRoute = baseApiRoute + 'griptape';
+        img.forEach((element, index) => {
+            if (scrGriptape[index]) {
+                element.src = scrGriptape[index];
+            }
+            element.style.height = "400px";
+            element.style.width = "135px";
+            Produkte.style.width = "40vw";
+            Produkte.style.left = "30vw";
+        });
+    }  
+
+    fetch(apiRoute)
+        .then(response => response.json())
+        .then(data => {
+            const produktNamen = document.querySelectorAll('.produktname');
+
+            data.forEach((objekt, index) => {
+                if (produktNamen[index] && objekt.name) {
+                    produktNamen[index].textContent = objekt.name + " " + objekt.Preis;
+                    produktNamen[index].style.fontSize = "13px";
+                }
+            });
+        })
+        .catch(err => console.error('Fehler beim Laden:', err));
+}
+
+    function Fenster_schliessen() {
+    Produkte.style.display = "none";
+    if (aktuellGeöffneteEinheit !== null) {
+        let Einheit = document.getElementById("Einheit" + aktuellGeöffneteEinheit);
+        Einheit.style.top = ursprungsPosition[aktuellGeöffneteEinheit] + "px";
+        einheitenStatus[aktuellGeöffneteEinheit] = false;
+        aktuellGeöffneteEinheit = null;
+    }
+}
+    
+    function Informationen(index2) {
+    if (Kategorie.textContent === "Deck") {
+        apiRoute = baseApiRoute + 'scooterteile';
+    } else if (Kategorie.textContent === "Bar") {
+       apiRoute = baseApiRoute + 'bars';
+    } else if (Kategorie.textContent === "Fork") {
+        apiRoute = baseApiRoute + 'forks';
+    } else if (Kategorie.textContent === "Räder") {
+        apiRoute = baseApiRoute + 'rader';
+    }
+
+    fetch(apiRoute)
+    .then(response => response.json())
+    .then(data => {
+        let produkt = data[index2 - 1]; // -1 weil index2 bei 1 startet
+        console.log(produkt);
+        let Produkt_Informationen = document.querySelectorAll('.Produkt_Informationen');
+   
+        if (Kategorie.textContent === "Deck") {
+    // Alle gewünschten Eigenschaften nacheinander einfügen
+        Produkt_Informationen[0].textContent = "Name: " + (produkt.name || "k.A.");
+        Produkt_Informationen[1].textContent = "Marke: " + (produkt.Marke || "k.A.");
+        Produkt_Informationen[2].textContent = "Farbe: " + (produkt.Farbe || "k.A.");
+        Produkt_Informationen[3].textContent = "Form: " + (produkt.Form || "k.A.");
+        Produkt_Informationen[4].textContent = "Deckbreite: " + (produkt.Deckbreite || "k.A.");
+        Produkt_Informationen[5].textContent = "Decklänge: " + (produkt.Decklänge || "k.A.");
+        Produkt_Informationen[6].textContent = "Gewicht: " + (produkt.Gewicht || "k.A.");
+        Produkt_Informationen[7].textContent = "Fussraum: " + (produkt.Fussraum || "k.A.");
+        Produkt_Informationen[8].textContent = "Deckkonkav: " + (produkt.Deckkonkav || "k.A.");
+        Produkt_Informationen[9].textContent = "Headtube Winkel: " + (produkt["Headtube Winkel"] || "k.A.");
+        Produkt_Informationen[10].textContent = "Deck Material: " + (produkt["Deck Material"] || "k.A.");
+        Produkt_Informationen[11].textContent = "Wärmebehandlungsverfahren: " + (produkt.Wärmebehandlungsverfahren|| "k.A.");
+        Produkt_Informationen[12].textContent = "Radbreite-Kompatibilität: " + (produkt["Radbreite-Kompatibilität"] || "k.A.");
+        Produkt_Informationen[13].textContent = "Raddruchmesser-Kompabilität: " + (produkt["Raddruchmesser-Kompabilität"] || "k.A.");
+        Produkt_Informationen[14].textContent = "Achsen-Grössenkompatibilität: " + (produkt["Achsen-Grössenkompatibilität"] || "k.A.");
+        Produkt_Informationen[15].textContent = "Bremse: " + (produkt.Bremse || "k.A.");
+        Produkt_Informationen[16].textContent = "Griptape: " + (produkt.Griptape || "Nicht inbegriffen");
+        Produkt_Informationen[17].textContent = "Headset-Typ: " + (produkt["Headset-Typ"] || "k.A.");
+        Produkt_Informationen[18].textContent = "Mitenthalten: " + (produkt.Mitenthalten || "k.A.");
+        Produkt_Informationen[19].textContent = "Preis: " + (produkt.Preis || "k.A.");
+        }
+        if(Kategorie.textContent === "Bar") {
+        Produkt_Informationen[0].textContent = "Name: " + (produkt.name || "k.A.");
+        Produkt_Informationen[1].textContent = "Marke: " + (produkt.Marke || "k.A.");
+        Produkt_Informationen[2].textContent = "Farbe: " + (produkt.Farbe || "k.A.");
+        Produkt_Informationen[3].textContent = "LenkerHöhe: " + (produkt.LenkerHöhe || "k.A.");
+        Produkt_Informationen[4].textContent = "LenkerBreite: " + (produkt.LenkerBreite || "k.A.");
+        Produkt_Informationen[5].textContent = "Kompatibilität: " + (produkt.Kompatilität || "k.A.");
+        Produkt_Informationen[6].textContent = "Kompatibel mit Lenker/Griffe: " + (produkt["Kompatibel mit Lenker/Griffe"] || "k.A.");
+        Produkt_Informationen[7].textContent = "Material: " + (produkt.Material || "k.A.");
+        Produkt_Informationen[8].textContent = "Lenker-Außendurchmesser: " + (produkt["Lenker-Außendurchmesser"] || "k.A.");
+        Produkt_Informationen[9].textContent = "Lenker-Innendurchmesser: " + (produkt["Lenker-Innendurchmesser"] || "k.A.");
+        Produkt_Informationen[10].textContent = "Gewicht: " + (produkt.Gewicht || "k.A.");
+        Produkt_Informationen[11].textContent = "Backsweep: " + (produkt.Backsweep|| "k.A.");
+        Produkt_Informationen[12].textContent = "SCS Ready: " + (produkt["SCS Ready"] || "k.A.");
+        Produkt_Informationen[13].textContent = "SCS Sleeve inkludiert: " + (produkt["SCS Sleeve inkludiert"] || "k.A.");
+        Produkt_Informationen[14].textContent = "Lenker-Design: " + (produkt["Lenker-Design"] || "k.A.");
+        Produkt_Informationen[15].textContent = "Griffe: " + (produkt.Griffe || "k.A.");
+        Produkt_Informationen[16].textContent = "Preis: " + (produkt.Preis || "k.A.");
+    }
+    if (Kategorie.textContent === "Fork") {
+        Produkt_Informationen[0].textContent = "Name: " + (produkt.name || "k.A.");
+        Produkt_Informationen[1].textContent = "Marke: " + (produkt.Marke || "k.A.");
+        Produkt_Informationen[2].textContent = "Farbe: " + (produkt.Farbe || "k.A.");
+        Produkt_Informationen[3].textContent = "Rollendurchmesser: " + (produkt.Rollendurchmesser || "k.A.");
+        Produkt_Informationen[4].textContent = "Rollenbreite: " + (produkt.Rollenbreite || "k.A.");
+        Produkt_Informationen[5].textContent = "Kompatibilität: " + (produkt.Kompatilität || "k.A.");
+        Produkt_Informationen[6].textContent = "Gabellänge: " + (produkt["Kompatibel mit Lenker/Griffe"] || "k.A.");
+        Produkt_Informationen[7].textContent = "Gewicht: " + (produkt.Gewicht || "k.A.");
+        Produkt_Informationen[8].textContent = "Gabel-Design: " + (produkt["Gabel-Design"] || "k.A.");
+        Produkt_Informationen[9].textContent = "Rollenprofil: " + (produkt["Rollenprofil"] || "k.A.");
+        Produkt_Informationen[10].textContent = "Gabel-Typ: " + (produkt["Gabel-Typ"] || "k.A.");
+        Produkt_Informationen[11].textContent = "Material: " + (produkt.Material|| "k.A.");
+        Produkt_Informationen[12].textContent = "Crown Race: " + (produkt["Crown Race"] || "k.A.");
+        Produkt_Informationen[13].textContent = "Wärmebehandlungsverfahren: " + (produkt["Wärmebehandlungsverfahren"] || "k.A.");
+        Produkt_Informationen[14].textContent = "Reifen-Offset: " + (produkt["Reifen-Offset"] || "k.A.");
+        Produkt_Informationen[15].textContent = "Achse: " + (produkt.Achse || "k.A.");
+        Produkt_Informationen[16].textContent = "Achsen-Durchmesser: " + (produkt["Achsen-Durchmesser"] || "k.A.");
+        Produkt_Informationen[17].textContent = "Frame Spacer Typ: " + (produkt["Frame Spacer Typ"] || "k.A.");
+        Produkt_Informationen[18].textContent = "Compression enthalten: " + (produkt["Compression enthalten"] || "k.A.");
+        Produkt_Informationen[19].textContent = "Starnut: " + (produkt.Starnut || "k.A.");
+        Produkt_Informationen[20].textContent = "Compression-Schraube: " + (produkt["Compression-Schraube"] || "k.A.");
+        Produkt_Informationen[21].textContent = "Compressions-Schraubenlänge: " + (produkt["Compressions-Schraubenlänge"] || "k.A.");
+        Produkt_Informationen[22].textContent = "Shimlänge: " + (produkt["Shimlänge"] || "k.A.");
+        Produkt_Informationen[23].textContent = "Preis: " + (produkt["Preis"] || "k.A.");
+    }
+    if(Kategorie.textContent === "Räder") {
+        Produkt_Informationen[0].textContent = "Name: " + (produkt.name || "k.A.");
+        Produkt_Informationen[1].textContent = "Marke: " + (produkt.Marke || "k.A.");
+        Produkt_Informationen[2].textContent = "Farbe: " + (produkt.Farbe || "k.A.");
+        Produkt_Informationen[3].textContent = "Rollendurchmesser: " + (produkt.Rollendurchmesser || "k.A.");
+        Produkt_Informationen[4].textContent = "Rollenbreite: " + (produkt.Rollenbreite || "k.A.");
+        Produkt_Informationen[5].textContent = "Kugellager: " + (produkt.Kugellager || "k.A.");
+        Produkt_Informationen[6].textContent = "Rollenkern-Design: " + (produkt["Rollenkern-Design"] || "k.A.");
+        Produkt_Informationen[7].textContent = "Gewicht: " + (produkt.Gewicht || "k.A.");
+        Produkt_Informationen[8].textContent = "Rollen pro Packung: " + (produkt["Rollen pro Packung"] || "k.A.");
+        Produkt_Informationen[9].textContent = "Rollenkern-Material: " + (produkt["Rollenkern-Material"] || "k.A.");
+        Produkt_Informationen[10].textContent = "Gewicht: " + (produkt.Gewicht || "k.A.");
+        Produkt_Informationen[11].textContent = "Rollenprofil: " + (produkt.Rollenprofil || "k.A.");
+        Produkt_Informationen[12].textContent = "Kugellager-Präzision: " + (produkt["Kugellager-Präzision"] || "k.A.");
+        Produkt_Informationen[13].textContent = "Kugellager Größe: " + (produkt["Kugellager Größe"] || "k.A.");
+        Produkt_Informationen[14].textContent = "Achsen-Durchmesser: " + (produkt["Achsen-Durchmesser"] || "k.A.");
+        Produkt_Informationen[15].textContent = "Preis: " + (produkt.Preis || "k.A.");
+    }if(Kategorie.textContent === "Griffe") {
+        Produkt_Informationen[0].textContent = "Name: " + (produkt.name || "k.A.");
+        Produkt_Informationen[1].textContent = "Marke: " + (produkt.Marke || "k.A.");
+        Produkt_Informationen[2].textContent = "Farbe: " + (produkt.Farbe || "k.A.");
+        Produkt_Informationen[3].textContent = "Kompatibel mit Lenker/Griffe: " + (produkt["Kompatibel mit Lenker/Griffe"] || "k.A.");
+        Produkt_Informationen[4].textContent = "Grip-Länge: " + (produkt["Grip-Länge"] || "k.A.");
+        Produkt_Informationen[5].textContent = "Material: " + (produkt.Material || "k.A.");
+        Produkt_Informationen[6].textContent = "Plugs: " + (produkt["Plugs"] || "k.A.");
+        Produkt_Informationen[7].textContent = "Flange: " + (produkt.Flange || "k.A.");
+        Produkt_Informationen[8].textContent = "Härte: " + (produkt["Härte"] || "k.A.");
+        Produkt_Informationen[9].textContent = "Gewicht: " + (produkt.Gewicht || "k.A.");
+        Produkt_Informationen[10].textContent = "Preis: " + (produkt.Preis || "k.A.");
+    }if(Kategorie.textContent === "Headset") {
+        Produkt_Informationen[0].textContent = "Name: " + (produkt.name || "k.A.");
+        Produkt_Informationen[1].textContent = "Marke: " + (produkt.Marke || "k.A.");
+        Produkt_Informationen[2].textContent = "Farbe: " + (produkt.Farbe || "k.A.");
+        Produkt_Informationen[3].textContent = "Headset-Typ: " + (produkt["Headset-Typ"] || "k.A.");
+        Produkt_Informationen[4].textContent = "Kompatibel mit: " + (produkt["Kompatibel mit"] || "k.A.");
+        Produkt_Informationen[5].textContent = "Kugellagertyp: " + (produkt.Kugellagertyp || "k.A.");
+        Produkt_Informationen[6].textContent = "Gewicht: " + (produkt["Gewicht"] || "k.A.");
+        Produkt_Informationen[7].textContent = "Crown Race: " + (produkt["Crown Race"] || "k.A.");
+        Produkt_Informationen[8].textContent = "C-ring: " + (produkt["C-ring"] || "k.A.");
+        Produkt_Informationen[9].textContent = "Preis: " + (produkt.Preis || "k.A.");
+    }if (Kategorie.textContent === "Klemme") {
+        Produkt_Informationen[0].textContent = "Name: " + (produkt.name || "k.A.");
+        Produkt_Informationen[1].textContent = "Marke: " + (produkt.Marke || "k.A.");
+        Produkt_Informationen[2].textContent = "Farbe: " + (produkt.Farbe || "k.A.");
+        Produkt_Informationen[3].textContent = "SCS-Kompression: " + (produkt["SCS-Kompression"] || "k.A.");
+        Produkt_Informationen[4].textContent = "Clamp-Innendurchmesser: " + (produkt["Clamp-Innendurchmesser"] || "k.A.");
+        Produkt_Informationen[5].textContent = "Clamp-Größe: " + (produkt["Clamp-Größe"] || "k.A.");
+        Produkt_Informationen[6].textContent = "Shim: " + (produkt.Shim || "k.A.");
+        Produkt_Informationen[7].textContent = "Gewicht: " + (produkt.Gewicht || "k.A.");
+        Produkt_Informationen[8].textContent = "Compression enthalten: " + (produkt["Compression enthalten"] || "k.A.");
+        Produkt_Informationen[9].textContent = "Material: " + (produkt["Material"] || "k.A.");
+        Produkt_Informationen[10].textContent = "Starnut: " + (produkt["Starnut"] || "k.A.");
+        Produkt_Informationen[11].textContent = "Compression-Schraube: " + (produkt["Compression-Schraube"]|| "k.A.");
+        Produkt_Informationen[12].textContent = "Compression bolt diameter: " + (produkt["Compression bolt diameter"] || "k.A.");
+        Produkt_Informationen[13].textContent = "Compression-Schraubenlänge: " + (produkt["Compression-Schraubenlänge"] || "k.A.");
+        Produkt_Informationen[14].textContent = "Shimlänge: " + (produkt["Shimlänge"] || "k.A.");
+        Produkt_Informationen[15].textContent = "Preis: " + (produkt.Preis || "k.A.");
+        }if(Kategorie.textContent === "Griptape") {
+        Produkt_Informationen[0].textContent = "Name: " + (produkt.name || "k.A.");
+        Produkt_Informationen[1].textContent = "Marke: " + (produkt.Marke || "k.A.");
+        Produkt_Informationen[2].textContent = "Farbe: " + (produkt.Farbe || "k.A.");
+        Produkt_Informationen[3].textContent = "Length: " + (produkt["Length"] || "k.A.");
+        Produkt_Informationen[4].textContent = "Width: " + (produkt["Width"] || "k.A.");
+        Produkt_Informationen[5].textContent = "Gewicht: " + (produkt["Gewicht"] || "k.A.");
+        Produkt_Informationen[6].textContent = "Preis: " + (produkt.Preis || "k.A.");
+    }
+    for (let i = 25; i < Produkt_Informationen.length; i++) {
+        Produkt_Informationen[i].textContent = "";
+    }
+
+    i.style.display = "block";
+    Einheit9.style.display = "none";
+
+    })
+    .catch(err => console.error('Fehler beim Laden:', err));
+}
+    function Zurück() {
+        i.style.display = "none";
+    }
+
+let InformationenKompatiblitätTopik = {};
+let InformationenKompatiblität = null;
+let HinzugefügteProdukte = {};
+let InformationenKompatiblität3 = null;
+let InformationenKompatiblität4 = null;
+let InformationenKompatiblität5 = null;
+let InformationenKompatiblität2 = null;
+let InformationenKompatiblität7 = null;
+let InformationenKompatiblität8 = null;
+let deckButtons = [];
+let deckBreiteButtons = [];
+let headsetFarbe = [];
+let forkFarbe = [];
+let LenkerHöhe = [];
+let LenkerBreite = [];    
+let Farbe = [];
+let klemmeFarbe = [];
+let räderFarbe = [];
+let räderRollendurchmesser = [];
+let räderRollenbreite = [];
+let griffeFarbe = [];
+let griptapeFarbe = [];
+let kompatibel5 = false;
+let AusgewählteProdukteArray = [];
+let AusgewählteProdukteArrayPreis = [];
+let KonfigurationenArray = [];
+let AnzahlKategorien = 0;
+let AnzahlKategorien2 = 0;
+    
+    function Hinzufügen(number) {
+    freigeben = freigeben + 1;
+    Freigeben();    
+    HinzugefügteProdukte = Kategorie.textContent + number;
+    Produkte.style.display = "none";
+    let KategorieÜbesetzt;
+    switch (Kategorie.textContent) {
+        case "Deck":
+            KategorieÜbesetzt = "scooterteile";
+            break;
+        case "Räder":
+            KategorieÜbesetzt = "rader";
+            break;
+        case "Bar":
+            KategorieÜbesetzt = "bars";
+            break;
+        case "Fork":
+            KategorieÜbesetzt = "forks";
+            break;
+         case "Griffe":
+            KategorieÜbesetzt = "griffe";
+            break;
+         case "Headset":
+            KategorieÜbesetzt = "headsets";
+            break;
+         case "Klemme":
+            KategorieÜbesetzt = "klemme";
+            break;
+         case "Griptape":
+            KategorieÜbesetzt = "griptape";
+            break;
+        default:
+            KategorieÜbesetzt = Kategorie.textContent.toLowerCase();
+    }
+    apiRoute = baseApiRoute + KategorieÜbesetzt;
+    fetch(apiRoute)
+        .then(response => response.json())
+        .then(data => {
+            const AusgewähltesProdukt = data[number - 1];
+            const headline = document.createElement("h1");
+            headline.style.position = "absolute";
+
+            // Berechne die Position der aktuellen Einheit
+            let Einheit = document.getElementById("Einheit" + aktuellGeöffneteEinheit);
+            let rect = Einheit.getBoundingClientRect();
+            headline.style.top = (rect.top + window.scrollY - 150) + "px";
+            
+            headline.style.left = "30vw"; // Optional: Passe die horizontale Position an
+            headline.textContent = AusgewähltesProdukt.name; 
+            headline.style.fontSize = "20px";
+            headline.style.zIndex = "-1"; // Sicherstellen, dass es über anderen Elementen liegt
+            document.body.appendChild(headline);
+            if (freigeben == 2) {
+                AusgewählteProdukteArray.push(headline.textContent);
+                AusgewählteProdukteArrayPreis.push(AusgewähltesProdukt.Preis);
+                InformationenKompatiblität3 = AusgewähltesProdukt["Raddruchmesser-Kompabilität"];
+                InformationenKompatiblität4 = AusgewähltesProdukt["Radbreite-Kompatibilität"];
+                if (Array.isArray(AusgewähltesProdukt.Decklänge)) {
+                    AnzahlKategorien2++;
+                    AusgewähltesProdukt.Decklänge.forEach((part, index) => {
+                        let btn = document.createElement("button");
+                        btn.style.position = "absolute";
+                        btn.textContent = part;
+                        btn.style.zIndex = "-10"
+                        // Positionierung
+                        btn.style.top = (rect.top + window.scrollY - 100) + "px";
+                        btn.style.left = `calc(30vw + ${index * 130}px)`;
+
+                        // Button zum Array hinzufügen
+                        deckButtons.push(btn);  
+
+                        btn.onclick = () => {
+                            let Buttons = "deckButtons";                            
+                            KonfigurationenArray.push({
+                                kategorie: "Decklänge/Deckbreite",  
+                                wert: btn.textContent
+                            });
+                            Speichern(index, Buttons);
+                        };
+                        document.body.appendChild(btn);
+                    });
+                }
+
+                if (Array.isArray(AusgewähltesProdukt.Deckbreite)) {
+                    AusgewähltesProdukt.Deckbreite.forEach((part, index) => {
+                        let btn = document.createElement("button");
+                        btn.style.position = "absolute";
+                        btn.style.zIndex = "-10"
+                        btn.textContent = part;
+
+                        btn.style.top = (rect.top + window.scrollY - 70) + "px";
+                        btn.style.left = `calc(30vw + ${index * 130}px)`;
+
+                        deckBreiteButtons.push(btn);
+
+                        btn.onclick = () => {
+                            btn.onclick = () => {
+                            KonfigurationenArray.push({
+                                kategorie: "Decklänge/Deckbreite",
+                                wert: btn.textContent
+                            });
+                            };
+                            Speichern(index);
+                        };
+
+                        document.body.appendChild(btn);
+                    });
+                }
+            }
+            if (freigeben == 3){
+                AusgewählteProdukteArray.push(headline.textContent);
+                AusgewählteProdukteArrayPreis.push(AusgewähltesProdukt.Preis);
+                
+                if (Array.isArray(AusgewähltesProdukt.Farbe)) {
+                    AnzahlKategorien2++;
+                    AusgewähltesProdukt.Farbe.forEach((part, index) => {
+                        let btn = document.createElement("button");
+                        btn.style.position = "absolute";
+                        btn.style.zIndex = "-10"
+                        btn.textContent = part;
+
+                        btn.style.top = (rect.top + window.scrollY - 100) + "px";
+                        btn.style.left = `calc(30vw + ${index * 130}px)`;
+
+                        headsetFarbe.push(btn);
+
+                        btn.onclick = () => {
+                        let Buttons = "headsetFarbe";
+                        KonfigurationenArray.push({
+                                kategorie: "Headset Farbe",
+                                wert: btn.textContent
+                            });
+                            Speichern(index, Buttons);
+                        };
+
+                        document.body.appendChild(btn);
+                    });
+                }
+            }
+            // Fork Variablen
+            if (freigeben == 4) {
+                InformationenKompatiblität = AusgewähltesProdukt.Kompatilität;
+                InformationenKompatiblität5 = AusgewähltesProdukt.Rollenbreite;
+                InformationenKompatiblität6 = AusgewähltesProdukt.Rollendurchmesser;
+                AusgewählteProdukteArray.push(headline.textContent);
+                AusgewählteProdukteArrayPreis.push(AusgewähltesProdukt.Preis); 
+                if (Array.isArray(AusgewähltesProdukt.Farbe)) {
+                    AnzahlKategorien2++;
+                    AusgewähltesProdukt.Farbe.forEach((part, index) => {
+                        let btn = document.createElement("button");
+                        btn.style.position = "absolute";
+                        btn.style.zIndex = "-10"
+                        btn.textContent = part;
+
+                        btn.style.top = (rect.top + window.scrollY - 100) + "px";
+                        btn.style.left = `calc(30vw + ${index * 130}px)`;
+
+                        forkFarbe.push(btn);
+
+                        btn.onclick = () => {
+                            let Buttons = "forkFarbe";                          
+                            KonfigurationenArray.push({
+                                kategorie: "Fork",
+                                wert: btn.textContent
+                            });
+                            Speichern(index, Buttons);
+                        };
+
+                        document.body.appendChild(btn);
+                    });
+                }     
+            }
+
+            // Bar Fork Überprüfung
+            if (freigeben == 5) {
+                let kompat1 = Array.isArray(InformationenKompatiblität)
+                    ? InformationenKompatiblität
+                    : [InformationenKompatiblität];
+
+                let kompat2 = Array.isArray(AusgewähltesProdukt.Kompatilität)
+                    ? AusgewähltesProdukt.Kompatilität
+                    : [AusgewähltesProdukt.Kompatilität];
+                InformationenKompatiblität8 = AusgewähltesProdukt.Kompatilität
+                
+                // Prüfe, ob es eine Übereinstimmung gibt
+                let kompatibel = kompat1.some(k1 =>
+                    kompat2.some(k2 => k1.trim().toLowerCase() === k2.trim().toLowerCase())
+                );
+
+                if (!kompatibel) {
+                    alert("Die ausgewählten Teile sind nicht kompatibel!");
+                    freigeben = freigeben - 1;
+                    headline.remove();
+                    Freigeben();
+                    return;
+                }else{
+                    AusgewählteProdukteArray.push(headline.textContent);
+                    AusgewählteProdukteArrayPreis.push(AusgewähltesProdukt.Preis);
+                }
+                let x = 0;
+
+                let Variable = "";
+                while (x < 3) {
+                    if (x == 0){
+                   Variable = "LenkerHöhe";
+                }else if (x == 1){
+                   Variable = "LenkerBreite"; 
+                }else if (x == 2){
+                    Variable = "Farbe"
+                }
+                    if (Array.isArray(AusgewähltesProdukt[Variable])) {
+                    AnzahlKategorien2++;    
+                    AusgewähltesProdukt[Variable].forEach((part, index) => {
+                        let btn = document.createElement("button");
+                        btn.style.position = "absolute";
+                        btn.style.zIndex = "-10"
+                        btn.textContent = part;
+                        btn.style.top = (rect.top + window.scrollY - (100 - x * 30)) + "px";
+                        btn.style.left = `calc(30vw + ${index * 130}px)`;
+
+                        if (x == 0){
+                        LenkerHöhe.push(btn);
+                        }else if (x == 1){
+                        LenkerBreite.push(btn);
+                        }else if (x == 2){
+                        Farbe.push(btn);
+                        } 
+  
+                         if (x !== 2){  
+                            btn.onclick = () => {
+                                AnzahlKategorien2--;
+                                Buttons = "Bar"
+                                KonfigurationenArray.push({
+                                kategorie: "Bar Länge",
+                                wert: btn.textContent
+                            });
+                                Speichern(index, Buttons);
+                            };
+                        }else{
+                            btn.onclick = () => {
+                                let Buttons2 = "Bar"
+                                Buttons = "Bar"
+                                KonfigurationenArray.push({
+                                kategorie: "Bar Farbe",
+                                wert: btn.textContent
+                            });
+                                Speichern2(index, Buttons2);
+                            };
+                        }
+                        document.body.appendChild(btn);
+                    });
+                }  
+                   x++; 
+                }
+                InformationenKompatiblität2 = AusgewähltesProdukt["Lenker-Außendurchmesser"];
+                InformationenKompatiblität7 = AusgewähltesProdukt["Kompatibel mit Lenker/Griffe"];
+            }
+
+            // Klemme Bar Fork Überprüfung
+            if (freigeben == 6) {
+                let kompat4 = Array.isArray(InformationenKompatiblität2)
+                    ? InformationenKompatiblität2
+                    : [InformationenKompatiblität2];
+
+                let kompat3 = Array.isArray(AusgewähltesProdukt["Clamp-Innendurchmesser"])
+                    ? AusgewähltesProdukt["Clamp-Innendurchmesser"]
+                    : [AusgewähltesProdukt["Clamp-Innendurchmesser"]];
+                
+                    let kompatibel2 = kompat4.some(k1 =>
+                        kompat3.some(k2 => {
+                            // Mach aus dem Text z. B. "32mm (Regular), 35mm (Oversized)" → ["32mm", "35mm"]
+                            let teile = k2.split(",").map(t => t.trim().substring(0, 4).toLowerCase());
+                            // Vergleich: kommt k1 (z. B. "32mm") in diesen Teilen vor?
+                            return teile.includes(k1.trim().substring(0, 4).toLowerCase());
+                        })
+                    );
+       
+                if (!kompatibel2) {
+                    alert("Die ausgewählten Teile sind nicht kompatibel!");
+                    freigeben = freigeben - 1;
+                    headline.remove();
+                    Freigeben();
+                    return;
+               }
+                         // DEBUGGING: Inhalt der zweiten Prüfung anzeigen
+                let kompat1 = Array.isArray(InformationenKompatiblität)
+                        ? InformationenKompatiblität
+                        : [InformationenKompatiblität];
+                let kompat2 = Array.isArray(AusgewähltesProdukt["Compression enthalten"])
+                        ? AusgewähltesProdukt["Compression enthalten"]
+                        : [AusgewähltesProdukt["Compression enthalten"]];
+                let kompat5 = Array.isArray(InformationenKompatiblität8)
+                        ? InformationenKompatiblität8
+                        : [InformationenKompatiblität8];
+                        console.log("--- Prüfung  (Kompressionsystem) ---");
+                        console.log("kompat1 :", kompat1);
+                        console.log("kompat2 :", kompat2);
+                        console.log("kompat5 :", kompat5);
+                
+                    let kompatibel = kompat1.some(k1 =>
+                        kompat2.some(k2 =>
+                            kompat5.some(k3 => k1.replace(/\s/g, '').toLowerCase() === k2.replace(/\s/g, '').toLowerCase() && k1.replace(/\s/g, '').toLowerCase() === k3.replace(/\s/g, '').toLowerCase())
+                        )  
+                    );
+                    if (!kompatibel) {
+                        alert("Die ausgewählten Teile sind nicht kompatibel!");
+                        freigeben = freigeben - 1;      
+                        headline.remove();
+                            Freigeben();
+                            return;
+                        } else{
+                            AusgewählteProdukteArray.push(headline.textContent);
+                            AusgewählteProdukteArrayPreis.push(AusgewähltesProdukt.Preis);
+                        }
+            if (Array.isArray(AusgewähltesProdukt.Farbe)) {
+                AnzahlKategorien2++;
+                AusgewähltesProdukt.Farbe.forEach((part, index) => {
+                    let btn = document.createElement("button");
+                    btn.style.position = "absolute";
+                    btn.style.zIndex = "-10"
+                    btn.textContent = part;
+
+                    btn.style.top = (rect.top + window.scrollY - 100) + "px";
+                    btn.style.left = `calc(30vw + ${index * 130}px)`;
+
+                    klemmeFarbe.push(btn);
+
+                        btn.onclick = () => {
+                            Buttons = "Klemme"                            
+                                KonfigurationenArray.push({
+                                kategorie: "Klemme",
+                                wert: btn.textContent
+                            });                        
+                        
+                            Speichern(index, Buttons);
+                        };
+
+                        document.body.appendChild(btn);
+                    });
+                }     
+            }
+
+            // Rad Fork Deck Überprüfung
+            if (freigeben == 7) {
+                let kompat1 = Array.isArray(InformationenKompatiblität4)
+                    ? InformationenKompatiblität4
+                    : [InformationenKompatiblität4];
+                let kompat2 = Array.isArray(AusgewähltesProdukt["Rollenbreite"])
+                    ? AusgewähltesProdukt["Rollenbreite"]
+                    : [AusgewähltesProdukt["Rollenbreite"]];
+                let kompat3 = Array.isArray(InformationenKompatiblität5)
+                    ? InformationenKompatiblität5
+                    : [InformationenKompatiblität5];
+                    // DEBUGGING: Inhalt der ersten Prüfung anzeigen
+                let kompatibel4 = kompat1.some(k1 =>
+                    kompat2.some(k2 =>
+                        kompat3.some(k3 => k1.replace(/\s/g, '').toLowerCase() === k2.replace(/\s/g, '').toLowerCase() && k1.replace(/\s/g, '').toLowerCase() === k3.replace(/\s/g, '').toLowerCase())
+                    )  
+                );
+                if (kompatibel4){
+                    let kompat4 = Array.isArray(InformationenKompatiblität3)
+                        ? InformationenKompatiblität3
+                        : [InformationenKompatiblität3];
+                    let kompat5 = Array.isArray(AusgewähltesProdukt["Rollendurchmesser"])
+                        ? AusgewähltesProdukt["Rollendurchmesser"]
+                        : [AusgewähltesProdukt["Rollendurchmesser"]];
+                    let kompat6 = Array.isArray(InformationenKompatiblität6)
+                        ? InformationenKompatiblität6
+                        : [InformationenKompatiblität6];
+                        // DEBUGGING: Inhalt der zweiten Prüfung anzeigen
+                    let kompatibel5 = kompat4.some(k1 =>
+                        kompat5.some(k2 =>
+                            kompat6.some(k3 => k1.trim().toLowerCase() === k2.trim().toLowerCase() && k1.trim().toLowerCase() === k3.trim().toLowerCase())
+                        )
+                    );
+                    if (!kompatibel5) {
+                    alert("Die ausgewählten Teile sind nicht kompatibel!");
+                    freigeben = freigeben - 1;
+                    headline.remove();
+                    Freigeben();
+                    return;
+                }
+                } 
+                if (!kompatibel4) {
+                    alert("Die ausgewählten Teile sind nicht kompatibel!");
+                    freigeben = freigeben - 1;
+                    headline.remove();
+                    Freigeben();
+                    return;
+                }else{
+                    AusgewählteProdukteArray.push(headline.textContent);
+                    AusgewählteProdukteArrayPreis.push(AusgewähltesProdukt.Preis);
+                }
+                let x = 0;
+                let Variable = "";
+                while (x < 3) {
+                    if (x == 0){
+                   Variable = "Farbe";
+                }else if (x == 1){
+                   Variable = "Rollendurchmesser"; 
+                }else if (x == 2){
+                    Variable = "Rollenbreite"
+                }
+                    if (Array.isArray(AusgewähltesProdukt[Variable])) {
+                        AnzahlKategorien2++;
+                        AusgewähltesProdukt[Variable].forEach((part, index) => {
+                        let btn = document.createElement("button");
+                        btn.style.position = "absolute";
+                        btn.style.zIndex = "-10"
+                        btn.textContent = part;
+
+                        btn.style.top = (rect.top + window.scrollY - (100 - x * 30)) + "px";
+                        btn.style.left = `calc(30vw + ${index * 130}px)`;
+
+                        if (x == 0){
+                        räderFarbe.push(btn);
+                        }else if (x == 1){
+                        räderRollendurchmesser.push(btn);
+                        }else if (x == 2){
+                        räderRollenbreite.push(btn);
+                        } 
+                        
+                        if (x == 0){
+                            btn.onclick = () => {
+                                Buttons = "Räder"
+                                KonfigurationenArray.push({
+                                kategorie: "Räder Farbe",
+                                wert: btn.textContent
+                            });
+                                Speichern(index, Buttons);
+                            };
+                        }
+                        else{
+                            btn.onclick = () => {
+                                AnzahlKategorien2--;
+                                Buttons2 = "Räder"
+                                KonfigurationenArray.push({
+                                kategorie: "Räder Durchmesser/Breite",
+                                wert: btn.textContent
+                            });
+                                Speichern2(index, Buttons2);
+                            };
+                        }                        
+                        document.body.appendChild(btn);
+                    });
+                }  
+                   x++; 
+                }
+            }
+
+            // Griffe Bar Überprüfung
+            if (freigeben == 8) {
+                let kompat1 = Array.isArray(InformationenKompatiblität7)
+                    ? InformationenKompatiblität7
+                    : [InformationenKompatiblität7];
+
+                let kompat2 = Array.isArray(AusgewähltesProdukt["Kompatibel mit Lenker/Griffe"])
+                    ? AusgewähltesProdukt["Kompatibel mit Lenker/Griffe"]
+                    : [AusgewähltesProdukt["Kompatibel mit Lenker/Griffe"]];
+                    let kompatibel6 = kompat1.some(k1 =>
+                    kompat2.some(k2 => k1.trim().toLowerCase() === k2.trim().toLowerCase())
+                );
+                if (!kompatibel6) {
+                    alert("Die ausgewählten Teile sind nicht kompatibel!");
+                    freigeben = freigeben - 1;
+                    headline.remove();
+                    Freigeben();
+                    return;
+                }else{
+                    AusgewählteProdukteArray.push(headline.textContent);
+                    AusgewählteProdukteArrayPreis.push(AusgewähltesProdukt.Preis);
+            }
+            if (Array.isArray(AusgewähltesProdukt.Farbe)) {
+                AnzahlKategorien2++;
+                AusgewähltesProdukt.Farbe.forEach((part, index) => {
+                    let btn = document.createElement("button");
+                    btn.style.position = "absolute";
+                    btn.style.zIndex = "-10"
+                    btn.textContent = part;
+
+                    btn.style.top = (rect.top + window.scrollY - 100) + "px";
+                    btn.style.left = `calc(30vw + ${index * 130}px)`;
+
+                    griffeFarbe.push(btn);
+                        btn.onclick = () => {
+                            KonfigurationenArray.push({
+                                kategorie: "Griffe",
+                                wert: btn.textContent
+                            });
+                            Buttons = "Griffe"
+                            Speichern(index, Buttons);
+                        };
+
+                        document.body.appendChild(btn);
+                    });
+                }     
+        }
+        if (freigeben == 9){
+            AusgewählteProdukteArray.push(headline.textContent);
+            AusgewählteProdukteArrayPreis.push(AusgewähltesProdukt.Preis);
+
+            if (Array.isArray(AusgewähltesProdukt.Farbe)) {
+                AnzahlKategorien2++;
+                AusgewähltesProdukt.Farbe.forEach((part, index) => {
+                    let btn = document.createElement("button");
+                    btn.style.position = "absolute";
+                    btn.style.zIndex = "-10"
+                    btn.textContent = part;
+
+                    btn.style.top = (rect.top + window.scrollY - 100) + "px";
+                    btn.style.left = `calc(30vw + ${index * 130}px)`;
+
+                    griptapeFarbe.push(btn);
+
+                    btn.onclick = () => {
+                        Buttons = "Griptape"
+                        KonfigurationenArray.push({
+                            kategorie: "Griptape",
+                            wert: btn.textContent
+                        });
+                        Speichern(index, Buttons);
+                    };
+
+                    document.body.appendChild(btn);
+                });
+            }
+        }
+            if (aktuellGeöffneteEinheit !== null) {
+                let Einheit = document.getElementById("Einheit" + aktuellGeöffneteEinheit);
+                einheitenStatus[aktuellGeöffneteEinheit] = false;
+                aktuellGeöffneteEinheit = null;
+            }        
+        })      
+}
+function Speichern(index, Buttons) {
+    // Decklänge Buttons filtern
+    if (Buttons === "deckButtons") {
+        deckButtons.forEach((btn, i) => {
+        if (i !== index) btn.remove();
+        else btn.disabled = true;
+    });
+    // Deckbreite Buttons filtern
+    deckBreiteButtons.forEach((btn, i) => {
+        if (i !== index) btn.remove();
+        else btn.disabled = true;
+    });
+    
+    }
+    if (Buttons == "headsetFarbe") {
+        headsetFarbe.forEach((btn, i) => {
+            if (i !== index) btn.remove();
+            else btn.disabled = true;
+        });        
+    }
+    if (Buttons == "forkFarbe") {
+        forkFarbe.forEach((btn, i) => {
+            if (i !== index) btn.remove();
+            else btn.disabled = true;
+        });        
+    } 
+    if (Buttons == "Bar") {
+            LenkerHöhe.forEach((btn, i) => {
+                if (i !== index) btn.remove();
+                else btn.disabled = true;
+            });
+            LenkerBreite.forEach((btn, i) => {
+                if (i !== index) btn.remove();
+                else btn.disabled = true;
+            });
+    }
+    if (Buttons == "Klemme") {
+        klemmeFarbe.forEach((btn, i) => {
+            if (i !== index) btn.remove();
+            else btn.disabled = true;
+        });
+        
+    }
+    if (Buttons == "Räder") {
+        räderFarbe.forEach((btn, i) => {
+            if (i !== index) btn.remove();
+            else btn.disabled = true;
+        });       
+    }
+    if (Buttons == "Griffe") {
+        griffeFarbe.forEach((btn, i) => {
+            if (i !== index) btn.remove();
+            else btn.disabled = true;
+        });  
+    }
+    if (Buttons == "Griptape") {
+        griptapeFarbe.forEach((btn, i) => {
+            if (i !== index) btn.remove();
+            else btn.disabled = true;
+        });  
+    }
+} 
+function Speichern2(index, Buttons2){
+    if (Buttons2 == "Bar") {
+        Farbe.forEach((btn, i) => {
+            if (i !== index) btn.remove();
+            else btn.disabled = true;
+        });
+    }
+    if (Buttons2 == "Räder"){
+        räderRollendurchmesser.forEach((btn, i) => {
+            if (i !== index) btn.remove();
+            else btn.disabled = true;
+        });
+        räderRollenbreite.forEach((btn, i) => {
+            if (i !== index) btn.remove();
+            else btn.disabled = true;
+        });
+    }
+}
+
+paypal.Buttons({
+  createOrder: () => {
+    return fetch("http://localhost:3000/api/paypal/create-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        Produkte: AusgewählteProdukteArray,
+        KonfigurationenArray: KonfigurationenArray,
+        produkte: AusgewählteProdukteArrayPreis.map(p => parseFloat(p))
+      })
+      
+    })
+    .then(res => res.json())
+    .then(data => data.id);
+  },
+
+  onApprove: (data) => {
+  return fetch("http://localhost:3000/api/paypal/capture-order", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      orderID: data.orderID,
+      Produkte: AusgewählteProdukteArray,
+      KonfigurationenArray: KonfigurationenArray,
+      produkte: AusgewählteProdukteArrayPreis.map(p => parseFloat(p))
+    })
+    
+  })
+  .then(res => res.json())
+  .then(() => alert("Zahlung erfolgreich ✅"));
+}
+}).render("#paypal-button");
+let PaypalButton = document.getElementById("paypal-button");
+
+PaypalButton.style.display = "none";
+PaypalButton.style.justifyContent = "center";
+
+function PopUpKasse() {
+    if (KonfigurationenArray.length !== AnzahlKategorien2){
+        alert("Bitte wähle alle Konfigurationen aus, bevor sie fortfahren." + `\nAusgewählte Produkte: ${AnzahlKategorien2}/${KonfigurationenArray.length}`);
+        return;
+    }
+        if (value2 === 0) {
+            
+            Warenkorb.style.position = "absolute"
+            Warenkorb.style.top = `${window.scrollY + 100}px`; // Position des Pop-ups vertikal (y-Achse), direkt unterhalb des Buttons
+            Warenkorb.style.display = "block";
+            
+            document.getElementById("paypal-button").style.display = "block";
+            value2 = 1;
+            
+            console.log(AusgewählteProdukteArray);
+            let elList = document.querySelectorAll('.EndProdukte');
+            let PreisContainer = document.getElementById('Kosten');
+
+elList.forEach((element, index) => {
+    // Hole den passenden Wert aus dem Array
+    let inhalt = AusgewählteProdukteArray[index];
+    let preis = AusgewählteProdukteArrayPreis[index];
+    console.log("Inhalt:", preis);
+    if (inhalt) {
+        // Nummerieren + Wert einfügen
+        element.textContent = `${index + 1}. ${inhalt}  ${preis}`;
+        let total = 0;
+        AusgewählteProdukteArrayPreis.forEach((preis, index) => {
+            // Entferne alle nicht-numerischen Zeichen (wie Währungszeichen) und konvertiere zu Zahl
+            let numericPreis = parseFloat(preis);
+            if (numericPreis) {
+                total += numericPreis;
+                PreisContainer.textContent = `Gesamtkosten: ${total} CHF`;
+            }
+        });
+    } else {
+        // Falls kein Eintrag im Array existiert
+        element.textContent = `${index + 1}. -`;
+    }
+});
+        } else {
+            Warenkorb.style.display = "none";
+             document.getElementById("paypal-button").style.display = "none";
+            value2 = 0;
+        }
+    }
+//ChatGPT
+</script>
+</body>
+</html>
