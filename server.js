@@ -125,12 +125,17 @@ app.get('/api/griptape', async (req, res) => {
 const paypalRoutes = require("./routes/paypal.routes");
 app.use("/api/paypal", paypalRoutes);
 
+
+app.get('/', (req, res) => {
+  res.send('Backend läuft ✅');
+});
 // Server starten
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server läuft auf Port ${PORT}`);
 });
+
 
 
 
