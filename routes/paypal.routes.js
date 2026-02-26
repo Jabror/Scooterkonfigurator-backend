@@ -71,6 +71,7 @@ router.post("/capture-order", async (req, res) => {
       produkte: produkte,
       Produkte: Produkte,
       KonfigurationenArray: KonfigurationenArray,
+      InputValue: InputValue,
       total: total,
       status: "PAID"
     });
@@ -91,3 +92,4 @@ router.post("/capture-order", async (req, res) => {
 });
 
 module.exports = router;
+
