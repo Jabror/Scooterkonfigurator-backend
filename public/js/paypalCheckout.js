@@ -18,8 +18,14 @@ paypal.Buttons({
         return fetch("/api/paypal/capture-order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ orderID: data.orderID })
+            body: JSON.stringify({
+                orderID: data.orderID,
+                produkte: AusgewählteProdukteArrayPreis,
+                Produkte: AusgewählteProdukteArray,
+                KonfigurationenArray: KonfigurationenArray
+            })
         })
         .then(() => alert("Zahlung erfolgreich ✅"));
     }
 }).render("#paypal-button");
+
