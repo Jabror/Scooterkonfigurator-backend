@@ -49,6 +49,7 @@ router.post("/capture-order", async (req, res) => {
     const { orderID, produkte} = req.body;
     const { Produkte} = req.body;
     const { KonfigurationenArray} = req.body;
+    console.log("BODY:", req.body);
     if (!orderID || !produkte) {
       return res.status(400).json({ error: "Daten fehlen" });
     }
@@ -92,4 +93,5 @@ router.post("/capture-order", async (req, res) => {
 });
 
 module.exports = router;
+
 
