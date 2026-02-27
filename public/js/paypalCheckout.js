@@ -1,6 +1,6 @@
 paypal.Buttons({
     createOrder: () => {
-        return fetch("/api/paypal/create-order", {
+        return fetch("https://scooterkonfigurator-backend.onrender.com/api/paypal/create-order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -15,7 +15,7 @@ paypal.Buttons({
     },
 
     onApprove: (data) => {
-        return fetch("/api/paypal/capture-order", {
+        return fetch("https://scooterkonfigurator-backend.onrender.com/api/paypal/capture-order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -28,4 +28,5 @@ paypal.Buttons({
         .then(() => alert("Zahlung erfolgreich ✅"));
     }
 }).render("#paypal-button");
+
 
