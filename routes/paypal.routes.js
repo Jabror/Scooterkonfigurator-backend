@@ -11,6 +11,9 @@ const Order = require("../models/Order");
 router.post("/create-order", async (req, res) => {
   try {
     const { produkte } = req.body;
+if (!produkte || !Array.isArray(produkte) || produkte.length === 0) {
+  return res.status(400).json({ error: "Produkte fehlen oder ungültig" });
+}
 
     let total = 0;
     produkte.forEach(p => {
@@ -93,5 +96,6 @@ router.post("/capture-order", async (req, res) => {
 });
 
 module.exports = router;
+
 
 
