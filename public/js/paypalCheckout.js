@@ -5,8 +5,8 @@ paypal.Buttons({
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 produkte: AusgewählteProdukteArrayPreis.map(p =>
-    parseFloat(p)
-    )
+    parseFloat(p.replace(" CHF", ""))
+)
 
             })
         })
@@ -28,5 +28,6 @@ paypal.Buttons({
         .then(() => alert("Zahlung erfolgreich ✅"));
     }
 }).render("#paypal-button");
+
 
 
