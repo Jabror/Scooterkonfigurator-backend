@@ -5,7 +5,7 @@ const clientId = process.env.PAYPAL_CLIENT_ID;
 const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
 
 // LiveEnvironment
-const environment = new paypal.core.SandboxEnvironment(
+environment = new paypal.core.LiveEnvironment(
   clientId,
   clientSecret
 );
@@ -13,4 +13,5 @@ const environment = new paypal.core.SandboxEnvironment(
 const client = new paypal.core.PayPalHttpClient(environment);
 
 module.exports = client;
+
 
