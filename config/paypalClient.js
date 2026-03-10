@@ -4,8 +4,7 @@ const paypal = require("@paypal/checkout-server-sdk");
 const clientId = process.env.PAYPAL_CLIENT_ID;
 const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
 
-// LiveEnvironment
-environment = new paypal.core.LiveEnvironment(
+environment = new paypal.core.SandboxEnvironment(
   clientId,
   clientSecret
 );
@@ -13,5 +12,6 @@ environment = new paypal.core.LiveEnvironment(
 const client = new paypal.core.PayPalHttpClient(environment);
 
 module.exports = client;
+
 
 
